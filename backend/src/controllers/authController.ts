@@ -220,7 +220,7 @@ const setAuthToken = (res: Response, userId: string) => {
     res.cookie("auth_token", token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
-      sameSite: "strict",
+      sameSite: "none",
       maxAge: 86400000, // 1 day in milliseconds
     });
   

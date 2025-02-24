@@ -11,7 +11,7 @@ import authRoutes from "./routes/auth.route"
 dotenv.config();
 const app = express();
 app.use(cors({
-  origin: true,
+  origin: process.env.FRONTEND_URL,
   credentials: true
 }));
 
@@ -27,7 +27,7 @@ app.get("/deploy-success", (req, res) => {
   res.status(200).json({ message: "Deployment successful 🚀" });
 });
 
-const PORT = Number(process.env.PORT) || 8002;
+const PORT = Number(process.env.PORT) || 8001;
 app.listen(PORT,"0.0.0.0", () => {
   console.log(`Server running on port ${PORT}`);
 });

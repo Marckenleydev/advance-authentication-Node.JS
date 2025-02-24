@@ -222,6 +222,7 @@ const setAuthToken = (res: Response, userId: string) => {
       secure: process.env.NODE_ENV === "production",
       sameSite: "none",
       maxAge: 86400000, // 1 day in milliseconds
+
     });
   
     return token;

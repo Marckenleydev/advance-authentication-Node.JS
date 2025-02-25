@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useMutation } from "react-query";
+import { useMutation } from "@tanstack/react-query";
 import { Loader, Lock, Mail, User } from "lucide-react";
 import Input from "../components/Input";
 import PasswordStrengthMeter from "../components/PasswordStrengthMeter";
@@ -14,7 +14,7 @@ const SignUpPage = () => {
 	const navigate = useNavigate();
 
 	// React Query mutation for sign-up
-	const { mutate: signup, isLoading, error } = useMutation({
+	const { mutate: signup, isPending:isLoading, error } = useMutation({
         mutationFn: async () => userRegister({ email, password, name }),
         onSuccess: () => {
           navigate("/verify-email");

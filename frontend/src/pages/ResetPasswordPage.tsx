@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { useMutation } from "react-query";
+import { useMutation } from "@tanstack/react-query";
 import { resetPassword } from "../api/authAPI"; // Your API function
 import { useNavigate, useSearchParams } from "react-router-dom";
 import Input from "../components/Input";
@@ -24,7 +24,7 @@ const ResetPasswordPage = () => {
 	const navigate = useNavigate();
 
 	// React Query mutation for resetting password
-	const { mutate, isLoading, isError, error } = useMutation<void, Error, ResetPasswordVariables>({
+	const { mutate, isPending:isLoading, isError, error } = useMutation<void, Error, ResetPasswordVariables>({
 		mutationFn: ({ token, password }) => resetPassword(token, password), // Properly typed mutation function
 		onSuccess: () => {
 			toast.success("Password reset successfully, redirecting to login page...");

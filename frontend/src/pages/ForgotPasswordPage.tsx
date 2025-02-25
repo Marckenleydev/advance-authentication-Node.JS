@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { requestPasswordReset } from "../api/authAPI";
-import { useMutation } from "react-query";
+import { useMutation } from "@tanstack/react-query";
 import Input from "../components/Input";
 import { ArrowLeft, Loader, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -11,7 +11,7 @@ const ForgotPasswordPage = () => {
 	const [isSubmitted, setIsSubmitted] = useState(false);
 
 	 // React Query Mutation for login
-      const { mutate: forgotPasswordMutation, isLoading } = useMutation({
+      const { mutate: forgotPasswordMutation, isPending:isLoading } = useMutation({
         mutationFn: async () => await requestPasswordReset(email ),
         onSuccess: (data) => {
           console.log("Email sent successfully:", data);

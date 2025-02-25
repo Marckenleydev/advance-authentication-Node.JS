@@ -3,7 +3,7 @@ import { signOut } from "../api/authAPI";
 import { formatDate } from "./date";
 import { getCurrentUser } from "../api/authAPI";
 import { UserType } from "../api/types";
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 import { useNavigate } from "react-router";
 const DashboardPage = () => {
     const navigate = useNavigate();

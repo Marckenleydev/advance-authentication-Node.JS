@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Mail, Lock, Loader } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import Input from "../components/Input";
-import { useMutation } from "react-query";
+import { useMutation } from "@tanstack/react-query";
 import { userLogin } from "../api/authAPI";
 
 const SignInPage = () => {
@@ -74,9 +74,9 @@ const SignInPage = () => {
             whileTap={{ scale: 0.98 }}
             className="w-full py-3 px-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold rounded-lg shadow-lg hover:from-green-600 hover:to-emerald-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-900 transition duration-200"
             type="submit"
-            disabled={loginMutation.isLoading}
+            disabled={loginMutation.isPending}
           >
-            {loginMutation.isLoading ? <Loader className="w-6 h-6 animate-spin mx-auto" /> : "Login"}
+            {loginMutation.isPending ? <Loader className="w-6 h-6 animate-spin mx-auto" /> : "Login"}
           </motion.button>
         </form>
       </div>

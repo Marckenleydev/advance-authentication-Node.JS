@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { useMutation } from "react-query";
+import { useMutation } from "@tanstack/react-query";
 import { verifyEmail } from "../api/authAPI"; // Your API function
 import toast from "react-hot-toast";
 
@@ -11,7 +11,7 @@ const EmailVerificationPage = () => {
 	const navigate = useNavigate();
 
 	// React Query mutation for email verification
-	const { mutate, isLoading, isError, error } = useMutation({
+	const { mutate, isPending:isLoading, isError, error } = useMutation({
 		mutationFn: (verificationCode) => verifyEmail(verificationCode), // Your API call
 		onSuccess: () => {
 			toast.success("Email verified successfully");

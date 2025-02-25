@@ -18,7 +18,7 @@ const SignInPage = () => {
       setTimeout(()=>{
         navigate("/dashboard");
 
-      },1000)
+      },2000)
        // Redirect to dashboard or any other page
     },
     onError: (error: Error) => {

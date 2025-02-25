@@ -1,6 +1,6 @@
 import { RegisterFormData, SignInFormData, UserType } from "./types";
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const API_BASE_URL = "https://advance-authentication-node-js.onrender.com"
 
 export const userRegister = async (formData: RegisterFormData) => {
   const response = await fetch(`${API_BASE_URL}/api/auth/register`, {

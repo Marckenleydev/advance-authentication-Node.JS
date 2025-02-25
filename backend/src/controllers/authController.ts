@@ -66,6 +66,7 @@ export const verifyEmail = async(req:Request,res:Response): Promise<void> =>{
     
             await user.save();
             sendWelcomeEmail(user.name, user.email)
+            setAuthToken(res, user.id);
             res.status(200).json({ message: "Thank you for joining us. We're thrilled to have you as part of our community." });
             return;
         

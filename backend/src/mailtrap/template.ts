@@ -468,7 +468,7 @@ export const getResetPasswordEmailTemplate = (username: string, resetToken: stri
         <div class="content">
           <h2>Hello ${username},</h2>
           <p>You requested a password reset. Click the button below to reset your password:</p>
-          <a href="http://localhost:3000/reset-password?token=${resetToken}" class="reset-link">Reset Password</a>
+          <a href="https://advance-authentication-node-js.vercel.app/reset-password?token=${resetToken}" class="reset-link">Reset Password</a>
           <p>This link will expire in <strong>1 hour</strong>.</p>
           <p>If you did not request this, please ignore this email.</p>
           <p>Thank you,<br>Your Team</p>
